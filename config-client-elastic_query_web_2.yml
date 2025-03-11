@@ -1,5 +1,5 @@
 server:
-  port: 8184
+  port: 8185
   servlet:
     context-path: /elastic-query-web-client
 
@@ -18,8 +18,7 @@ elastic-query-web-client:
         id: elastic-query-service-1
         host: localhost
         port: 8183
-      -
-        id: elastic-query-service-2
+      - id: elastic-query-service-1
         host: localhost
         port: 8186
   query-by-text:
@@ -35,8 +34,8 @@ spring:
       client:
         registration:
           keycloak:
-            client-id: 'elastic-query-web-client'
-            client-secret: '{cipher}1a30de39e46762cd7854b64754e498881da0f3716ff4b2792014a636d3615f2de06733895a35b07846caf21832f35e5423d83fb731285fd400c4ffaf803c3ba7'
+            client-id: 'elastic-query-web-client-2'
+            client-secret: '{cipher}54b4326e9052bb75781ae965fb9e309ce50b35d7ec421a8a4a0d13b1705b38118d0e44b3356601c1f00dc055782eb8b8f9378410871a1ea4cbb6ac41ea4b8c1c'
             authorization-grant-type: authorization_code
             redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope: openid
@@ -46,7 +45,7 @@ spring:
 
 
 security:
-  logout-success-url: http://localhost:8184/elastic-query-web-client
+  logout-success-url: http://localhost:8185/elastic-query-web-client
   default-client-registration-id: keycloak
 
 user-config:
