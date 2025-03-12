@@ -1,17 +1,13 @@
 server:
   port: 8188
   servlet:
-    context-path: /
+    context-path: /analytics-service
 
 analytics-service:
   version: v2
   custom-audience: analytics-service
 
 spring:
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
   security:
     oauth2:
       resourceserver:
@@ -44,19 +40,7 @@ springdoc:
     path: /swagger-ui.html
 
 security:
-  paths-to-ignore: /api-docs, /actuator/**
-
-management:
-  endpoints:
-    web:
-      base-path: /actuator
-      exposure.include: health, prometheus
-      path-mapping.prometheus: metrics
-  endpoint:
-    health:
-      show-details: always
-    prometheus:
-      cache.time-to-live: 1ms
+  paths-to-ignore: /api-docs
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
@@ -90,4 +74,3 @@ retry-config:
   multiplier: 2.0
   maxAttempts: 3
   sleep-time-ms: 2000
-

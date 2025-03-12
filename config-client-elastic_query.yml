@@ -8,10 +8,14 @@ elastic-query-service:
     max-in-memory-size: 10485760 # 10MB
     content-type: 'application/vnd.api.v1+json'
     accept-type: 'application/vnd.api.v1+json'
-    query-type: 'KAFKA_STATE_STORE'
+    query-type: 'ANALYTICS_DATABASE'
   query-from-kafka-state-store:
     method: GET
     uri: "http://localhost:8187/kafka-streams-service/get-word-count-by-word/{word}"
+    accept: ${elastic-query-service.webclient.accept-type}
+  query-from-analytics-database:
+    method: GET
+    uri: "http://localhost:8187/analytics-service/get-word-count-by-word/{word}"
     accept: ${elastic-query-service.webclient.accept-type}
 
 server:
