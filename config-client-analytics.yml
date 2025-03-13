@@ -1,7 +1,7 @@
 server:
   port: 8188
   servlet:
-    context-path: /analytics-service
+    context-path: /
 
 analytics-service:
   version: v2
